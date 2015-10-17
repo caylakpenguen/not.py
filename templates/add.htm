@@ -1,0 +1,91 @@
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"><title>Not Ekle</title>
+<style>
+body {
+    background: black;
+    color: cadetblue;
+}
+button {
+	border-style:none;
+	margin-left:20px;
+	background-color: black;
+	color: red;
+}
+</style>
+<script type="text/javascript" src="http://code.jquery.com/jquery-2.0.0.min.js"></script>
+<script>
+$(document).ready(function(){
+    $("button").click(function(){
+	if (confirm("Bu notu silmeye emin misiniz ?") == true) {
+                $.get("/not/sil/" + this.id, function(data, status){
+					alert(data);
+					location.reload();
+				});
+    } else {
+			alert("Cancel")
+    }	
+
+    });
+});
+</script>
+</head>
+<body>
+<div id="header">
+	<h1>Notlarım</h1>
+			<form action = "/not/ekle/gonder" method = "post" >
+			<form name="post" action="post.php" method="post">
+<br>
+<input type="button" id="bold" value="B" style="color:#00FF00; background-color:#000000;font-style: bold;">
+<input type="button" id="italic" value="İ" style="color:#00FF00; background-color:#000000;font-style: italic;">
+<input type="button" id="underlined" value="U" style="color:#00FF00; background-color:#000000;text-decoration: underline;">
+<input type="button" id="deleted" value="SİLİNMİŞ" style="color:#00FF00; background-color:#000000;text-decoration: line-through;">
+<input type="button" id="img" value="IMG" style="color:#00FF00; background-color:#000000">
+<input type="button" id="link" value="LINK" style="color:#00FF00; background-color:#000000">
+<script>
+$("#bold").click(function () {
+    $('#not').val($('#not').val() + '<b></b>');
+});
+
+$("#italic").click(function () {
+    $('#not').val($('#not').val() + '<i></i>');
+});
+
+$("#underlined").click(function () {
+    $('#not').val($('#not').val() + '<u></u>');
+});
+
+$("#deleted").click(function () {
+    $('#not').val($('#not').val() + '<del></del>');
+});
+
+$("#img").click(function () {
+    $('#not').val($('#not').val() + ' <img src=""  height="" width="">');
+});
+
+$("#link").click(function () {
+    $('#not').val($('#not').val() + ' <a href="http://">link</a>');
+});
+
+
+</script>
+<br>	
+			<textarea id="not" name="not" cols=100 rows=5 style = "color:#00FF00; background-color:#000000"> </textarea>
+            <input type="submit" style = "color:#00FF00; background-color:#000000"/>
+            </form>
+<div id="notlar">
+<hr>
+	
+{% set i = data|length +1 %}
+{% if i == 1%}
+<center><h2>"Burada hiç not yok :("</h2></center>
+{% else %}
+{% for item in data %}
+{% set i = i - 1 %}
+ <b>{{ item[2] }} {{ item[3] }}</b><button id="{{ (item[0]) }}">X</button><br><p id="{{ (item[0]) }}"><b>{{ i }}</b>.{{ item[1] | safe }}</p><hr>
+{% endfor %}
+{% endif %}
+</div>
+</body>
+</html>
+

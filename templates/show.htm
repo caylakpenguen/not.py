@@ -1,0 +1,35 @@
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"><title>Notlarım</title>
+<style>
+body {
+    background: black;
+    color: cadetblue;
+}
+button {
+	border-style:none;
+	margin-left:20px;
+	background-color: black;
+	color: red;
+}
+</style>
+</head>
+<body>
+<div id="header">
+	<h1>Notlarım</h1>
+<div id="notlar">
+<hr>
+	
+{% set i = data|length +1 %}
+{% if i == 1%}
+<center><h2>"Burada hiç not yok :("</h2></center>
+{% else %}
+{% for item in data %}
+{% set i = i - 1 %}
+ <b>{{ item[2] }} {{ item[3] }}</b><br><p id="{{ (item[0]) }}"><b>{{ i }}</b>.{{ item[1] | safe }}</p><hr>
+{% endfor %}
+{% endif %}
+</div>
+</body>
+</html>
+
