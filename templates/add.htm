@@ -40,6 +40,8 @@ $(document).ready(function(){
 <input type="button" id="italic" value="İ" style="color:#00FF00; background-color:#000000;font-style: italic;">
 <input type="button" id="underlined" value="U" style="color:#00FF00; background-color:#000000;text-decoration: underline;">
 <input type="button" id="deleted" value="SİLİNMİŞ" style="color:#00FF00; background-color:#000000;text-decoration: line-through;">
+<input type="button" id="pre" value="pre" style="color:#00FF00; background-color:#000000">
+<input type="button" id="p" value="p" style="color:#00FF00; background-color:#000000">
 <input type="button" id="img" value="IMG" style="color:#00FF00; background-color:#000000">
 <input type="button" id="link" value="LINK" style="color:#00FF00; background-color:#000000">
 <script>
@@ -59,6 +61,14 @@ $("#deleted").click(function () {
     $('#not').val($('#not').val() + '<del></del>');
 });
 
+$("#pre").click(function () {
+    $('#not').val($('#not').val() + ' <pre></pre>');
+});
+
+$("#p").click(function () {
+    $('#not').val($('#not').val() + ' <p></p>');
+});
+
 $("#img").click(function () {
     $('#not').val($('#not').val() + ' <img src=""  height="" width="">');
 });
@@ -67,10 +77,9 @@ $("#link").click(function () {
     $('#not').val($('#not').val() + ' <a href="http://">link</a>');
 });
 
-
 </script>
 <br>	
-			<textarea id="not" name="not" cols=100 rows=5 style = "color:#00FF00; background-color:#000000"> </textarea>
+	    <textarea id="not" name="not" cols=100 rows=5 style = "color:#00FF00; background-color:#000000"> </textarea>
             <input type="submit" style = "color:#00FF00; background-color:#000000"/>
             </form>
 <div id="notlar">
@@ -86,6 +95,7 @@ $("#link").click(function () {
 {% endfor %}
 {% endif %}
 </div>
+<p align="right">Scripted by <a href="https://github.com/geekdinazor">@geekdinazor</a><p>
 </body>
 </html>
 

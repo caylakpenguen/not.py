@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
 import sqlite3
 import time
 conn = sqlite3.connect('notlar.db')
