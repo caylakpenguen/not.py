@@ -3,9 +3,9 @@
 
 Çalıştırmadan önce:
 
-0. `sudo apt-get install python-pip` komutuyla pip kurun.
+0. `sudo apt-get install python-pip` komutuyla pip programını kurun.
 
-1. `sudo pip install flask` komutuyla Flask bağımlılığını kurun. 
+1. `sudo pip install flask` komutuyla bağımlılıkları kurun. 
 
 2. `python init_db.py` komutuyla gerekli Sqlite veritabanını oluşturun.
 
