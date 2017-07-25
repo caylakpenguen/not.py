@@ -91,7 +91,7 @@ $("#link").click(function () {
 {% else %}
 {% for item in data %}
 {% set i = i - 1 %}
- <b>{{ item[2] }} {{ item[3] }}</b><button id="{{ (item[0]) }}">X</button><br><p id="{{ (item[0]) }}"><b>{{ i }}</b>.{{ item[1] | safe }}</p><hr>
+ <b>{{ item[2] }} {{ item[3] }}</b><button id="{{ (item[0]) }}">X</button><br><p id="{{ (item[0]) }}"><b>{{ item[0] }}</b>.{{ item[1] | safe }}</p><hr>
 {% endfor %}
 {% endif %}
 </div>

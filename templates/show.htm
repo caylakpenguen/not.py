@@ -12,6 +12,9 @@ button {
 	background-color: black;
 	color: red;
 }
+a {
+	color: cadetblue;
+}
 </style>
 </head>
 <body>
@@ -26,7 +29,7 @@ button {
 {% else %}
 {% for item in data %}
 {% set i = i - 1 %}
- <b>{{ item[2] }} {{ item[3] }}</b><br><p id="{{ (item[0]) }}"><b>{{ i }}</b>.{{ item[1] | safe }}</p><hr>
+ <b>{{ item[2] }} {{ item[3] }}</b><br><p><a href="{{ (item[0]) }}"><b>{{ item[0] }}</b>.</a> {{ item[1] | safe }}</p><hr>
 {% endfor %}
 {% endif %}
 </div>
