@@ -13,7 +13,7 @@ button {
 	color: red;
 }
 </style>
-<script type="text/javascript" src="http://code.jquery.com/jquery-2.0.0.min.js"></script>
+<script type="text/javascript" src="https://code.jquery.com/jquery-2.0.0.min.js"></script>
 <script>
 $(document).ready(function(){
     $("button").click(function(){
@@ -43,6 +43,7 @@ $(document).ready(function(){
 <input type="button" id="pre" value="pre" style="color:#00FF00; background-color:#000000">
 <input type="button" id="p" value="p" style="color:#00FF00; background-color:#000000">
 <input type="button" id="img" value="IMG" style="color:#00FF00; background-color:#000000">
+<input type="button" id="li" value="Li" style="color:#00FF00; background-color:#000000">
 <input type="button" id="link" value="LINK" style="color:#00FF00; background-color:#000000">
 <script>
 $("#bold").click(function () {
@@ -73,6 +74,10 @@ $("#img").click(function () {
     $('#not').val($('#not').val() + ' <img src=""  height="" width="">');
 });
 
+$("#li").click(function () {
+    $('#not').val($('#not').val() + ' <li> <li/>');
+});
+
 $("#link").click(function () {
     $('#not').val($('#not').val() + ' <a href="http://">link</a>');
 });
@@ -98,4 +103,3 @@ $("#link").click(function () {
 <p align="right">Scripted by <a href="https://github.com/geekdinazor">@geekdinazor</a><p>
 </body>
 </html>
-
